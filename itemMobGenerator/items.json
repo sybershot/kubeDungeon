@@ -1,0 +1,127 @@
+{
+  "major_mod": [
+    {
+      "name": "Mega",
+      "description": "Giant weapons, anyone?",
+      "effect_tip": "Increased damage by 20%, movement speed is decreased by 15% while kept.",
+      "effects": {
+        "item_dmg_mult": 1.2,
+        "player_mov_speed": 0.85
+      }
+    },
+    {
+      "name": "Small",
+      "description": "Small weapons, anyone?",
+      "effect_tip": "Decreased damage by 20%, attack speed is increased by 30%.",
+      "effects": {
+        "item_dmg_mult": 0.8,
+        "item_use_speed": 1.3
+      }
+    },
+    {
+      "name": "Tanky",
+      "description": "Tough, but slow",
+      "effect_tip": "50 more hp while held, attack speed is 50% slower",
+      "effects": {
+        "player_maxhp_add": 150,
+        "item_use_speed": 0.5
+      }
+    },
+    {
+      "name": "Tiny",
+      "description": "It is so tiny!",
+      "effect_tip": "Decreased damage by 50%, attack speed is increased by 50%.",
+      "effects": {
+        "item_dmg_mult": 0.5,
+        "item_use_speed": 1.5
+      }
+    },
+    {
+      "name": "Giga",
+      "description": "I have no idea how you could lift this up, but you certainly did. Boy it's heavy.",
+      "effect_tip": "Increased damage by 40%, movement speed is decreased by 30% while kept.",
+      "effects": {
+        "item_dmg_mult": 1.4,
+        "player_mov_speed": 0.7
+      }
+    },
+    {
+      "name": "Fiery",
+      "description": "Ignites stuff on hit.",
+      "effect_tip": "Adds %s additional fire damage per second.",
+      "effects": {
+        "item_dmg_type": "fire",
+        "item_effect_chance": 0.1,
+        "item_effect_duration": 5,
+        "item_effect_dmg": 2
+      }
+    },
+    {
+      "name": "Icy",
+      "description": "One crazy magician really wanted to get some ice cream, so they enchanted this item to make ice cream out of their enemies!",
+      "effect_tip": "Freezes enemies on hit for 1 second.",
+      "effects": {
+        "item_dmg_type": "ice",
+        "item_effect_chance": 0.2,
+        "item_effect_duration": 1
+      }
+    }
+  ],
+  "minor_mod": [
+    {
+      "name": "of glass",
+      "description": "Glass canon mode: active",
+      "effect_tip": "Damage is increased by 6.66 times, but reduces maximum hp to 1%.",
+      "effects": {
+        "item_dmg_mult": 6.66,
+        "player_maxhp_mult": 0.01
+      }
+    },
+    {
+      "name": "of swiftness",
+      "description": "Gotta go fast!",
+      "effect_tip": "Move speed is increased by 35% while item is held",
+      "effects": {
+        "player_mov_speed": 1.35
+      }
+    },
+    {
+      "name": "of slowness",
+      "description": "Gotta go fast?",
+      "effect_tip": "Move speed is decreased by 20% while item is held",
+      "effects": {
+        "player_mov_speed": 0.8
+      }
+    },
+    {
+      "name": "of health",
+      "description": "You are the healthy one",
+      "effect_tip": "Max hp is increased by 20% while held",
+      "effects": {
+        "player_maxhp_mult": 1.2
+      }
+    }
+  ],
+  "weapon_type": {
+    "melee": {
+      "names": [
+        "Sword",
+        "Axe",
+        "Halberd"
+      ]
+    },
+    "ranged": {
+      "names": [
+        "Bow",
+        "Crossbow",
+        "Pistol"
+      ]
+    },
+    "magic": {
+      "names": [
+        "Sand",
+        "Spellbook"
+      ]
+    }
+  }
+}

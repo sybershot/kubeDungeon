@@ -1,0 +1,19 @@
+{
+  "affix": [
+    "mega",
+    "giga",
+    "micro",
+    "psychic"
+  ],
+  "type": [
+    "zombie",
+    "skeleton",
+    "ogre",
+    "wurm"
+  ],
+  "postfix": [
+    "death knight",
+    "mechanic",
+    "of the higher lands"
+  ]
+}

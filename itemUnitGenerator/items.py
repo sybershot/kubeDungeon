@@ -1,4 +1,4 @@
-from modifiers import ModifierMajor, ModifierMinor, ModifierBase
+from itemUnitGenerator.item_modifiers import ModifierMajor, ModifierMinor, ModifierBase
 
 
 class ItemBase:

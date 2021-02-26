@@ -1,15 +1,14 @@
-from collections import defaultdict
-from typing import Dict, DefaultDict
+from typing import Dict
 
 
 class ModifierBase:
-    def __init__(self, name="Wrong", description="Hm, looks like something went wrong.",
+    def __init__(self, name="Err#228", description="Hm, looks like something went wrong.",
                  effect_tip="This item might have unexpected behaviour.", effects=None):
         self._name = name
         self._description = description
         self._effect_tip = effect_tip
         if effects is None:
-            raise Exception("Invalid modifier data")
+            raise Exception("Invalid modifier data!")
         self._effects = effects  # type: Dict
 
     @property

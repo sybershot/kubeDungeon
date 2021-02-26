@@ -1,4 +1,4 @@
-from generator import *
+from itemUnitGenerator.generator import *
 
 item = Generator()
 mob = Generator()

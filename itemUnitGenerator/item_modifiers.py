@@ -2,13 +2,13 @@ from typing import Dict
 
 
 class ModifierBase:
-    def __init__(self, name="Err#228", description="Hm, looks like something went wrong.",
-                 effect_tip="This item might have unexpected behaviour.", effects=None):
+    def __init__(self, name="Err#228", description="This item might have unexpected behaviour.",
+                 effect_tip="Hm, looks like something went wrong.", effects=None):
         self._name = name
         self._description = description
         self._effect_tip = effect_tip
         if effects is None:
-            raise Exception("Invalid modifier data!")
+            raise Exception("Error during modifier effects creation!")
         self._effects = effects  # type: Dict
 
     @property
@@ -25,7 +25,7 @@ class ModifierBase:
         for effect_name, effect_value in self.effects.items():
             applies_to, field1, field2 = effect_name.split('_')
             ret[applies_to] = ret.get(applies_to, {})
-            ret[applies_to][field1] = ret[applies_to].get(field1,{})
+            ret[applies_to][field1] = ret[applies_to].get(field1, {})
             ret[applies_to][field1][field2] = effect_value
         return ret
 

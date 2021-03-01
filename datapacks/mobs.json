@@ -5,7 +5,7 @@
     "micro",
     "psychic"
   ],
-  "type": [
+  "mob_type": [
     "zombie",
     "skeleton",
     "ogre",

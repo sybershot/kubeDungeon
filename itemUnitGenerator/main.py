@@ -9,8 +9,10 @@ while True:
         choice = int(input())
         if choice == 1:
             item.gen_item()
+            print(item)
         elif choice == 2:
-            mob.gen_mob()
+            mob.gen_unit()
+            print(mob)
         elif choice == 0:
             break
     except ValueError as e:

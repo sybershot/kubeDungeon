@@ -1,9 +1,10 @@
 import random
 import json
 
-# АЙТЕМСЫ
 from itemUnitGenerator.items import *
 from itemUnitGenerator.item_modifiers import *
+from itemUnitGenerator.units import *
+from itemUnitGenerator.unit_mutators import *
 
 
 class Generator:
@@ -49,27 +50,32 @@ class Generator:
         #     item.max_modifier += 1
         #     item.add_modifier(ModifierMajor(**random.choice(major_mod_data)))
 
-# ======================================================================================================================
+    # ======================================================================================================================
 
-    def gen_unit(self, ulvl=0, rarity=None):
-        mtype = random.choice(mob_l["type"])
-        pfix = random.choice(mob_l["postfix"])
-        affix = random.choice(mob_l["affix"])
-        name = affix + ' ' + mtype + ' ' + pfix
-
-        # Placeholder copy of item generation method, needs to be adapted for units, hm.
-        if ilvl is None:
+    def gen_unit(self, ulvl=None, rarity=None):
+        # Placeholder copy of item generation method, needs to be redone units.
+        if ulvl is None:
             try:
-                ilvl = int(input("Enter item lvl: "))
+                ulvl = int(input("Enter unit lvl: "))
             except ValueError as e:
-                ilvl = random.randint(1, 10)
+                ulvl = random.randint(1, 10)
         if rarity is None:
             rarity = round(random.lognormvariate(0, 0.42), 3)
-        item = random.choice([ItemMelee, ItemRanged])(item_lvl=ilvl, rarity=rarity)  # type:ItemBase
-        item.name = random.choice(self._game_data["weapon_type"][item.type_name]["names"])
-        if ilvl > 10:
-            ilvl = 10
-        self.gen_modifiers(rarity, item)
-        damage = random.uniform(ilvl, ilvl * 2)
-        item.damage = damage
-        return(unit)
+        unit = random.choice([ItemMelee, ItemRanged])(unit_lvl=ulvl, rarity=rarity)  # type:UnitBase
+        unit.name = random.choice(self._mob_data["mob_type"][unit.type_name]["names"])
+        if ulvl > 10:
+            ulvl = 10
+        self.gen_mutators(rarity, unit)
+        damage = random.uniform(ulvl, ulvl * 2)
+        unit.damage = damage
+        return (unit)
+
+    def gen_mutators(self, rarity, mob: MobBase):
+        if rarity < 1:
+            return
+        if rarity > 1:
+            mob.mutator_slots += 1
+            mob.add_mutator(ModifierMinor(**random.choice(self._minor_mod_data)))
+        if rarity > 2:
+            mob.mutator_slots += 1
+            mob.add_mutator(ModifierMajor(**random.choice(self._major_mod_data)))

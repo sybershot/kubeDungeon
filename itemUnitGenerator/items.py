@@ -2,7 +2,7 @@ from itemUnitGenerator.item_modifiers import ModifierMajor, ModifierMinor, Modif
 
 
 class ItemBase:
-    def __init__(self, item_lvl=0, name="Undefined?", modifiers=None, rarity=0, use_speed=0, max_modifier=0):
+    def __init__(self, item_lvl=0, name="Undefined?", modifiers=None, max_modifiers=0, rarity=0, use_speed=0):
         self.type_name = "item"
         self._item_lvl = item_lvl
         self._name = name
@@ -12,7 +12,7 @@ class ItemBase:
             self._modifiers = []  # type:List[ModifierBase]
         else:
             self._modifiers = modifiers  # type:List[ModifierBase]
-        self._max_modifier = max_modifier
+        self._max_modifier = max_modifiers
 
     # region Getters/Setters
     @property
@@ -20,11 +20,11 @@ class ItemBase:
         return self._item_lvl
 
     @item_lvl.setter
-    def item_lvl(self, new_item_lvl):
-        if type(new_item_lvl) is int:
-            self._item_lvl = new_item_lvl
+    def item_lvl(self, new_lvl):
+        if type(new_lvl) is int:
+            self._item_lvl = new_lvl
         else:
-            raise ValueError("Item lvl is not int.")
+            raise ValueError("Can't assign new item lvl! Is not int.")
 
     @property
     def name(self):
@@ -40,7 +40,10 @@ class ItemBase:
 
     @rarity.setter
     def rarity(self, new_rarity):
-        self._rarity = new_rarity
+        if type(new_rarity) is int:
+            self._rarity = new_rarity
+        else:
+            raise ValueError("Can't assign new item rarity! Is not int.")
 
     @property
     def use_speed(self):
@@ -88,7 +91,7 @@ class ItemBase:
 
 
 class ItemWeapon(ItemBase):
-    def __init__(self, damage=0, damage_type="default", sockets=None, max_socket=0, *args, **kwargs):
+    def __init__(self, damage=0, damage_type="default", sockets=None, max_sockets=0, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.type_name = "weapon"
         self._damage = damage
@@ -97,7 +100,7 @@ class ItemWeapon(ItemBase):
             self._sockets = []
         else:
             self._sockets = sockets
-        self._max_socket = max_socket
+        self._max_socket = max_sockets
 
     def insert_to_socket(self, socket):
         if self.available_socket_slots > 0:
